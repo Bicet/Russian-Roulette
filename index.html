@@ -1,0 +1,73 @@
+<!doctype html>
+<html manifest="cache.manifest">
+	<head>
+    	<meta charset="UTF-8" />
+        <title>Roulette &beta;2</title>
+        <style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>
+        <style type="text/css" media="screen">@import "themes/apple/theme.css";</style>
+        <script src="jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="extensions/jqt.offline.js" type="application/x-javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch(
+            {
+                icon: 'jqtouch.png',
+                icon4: 'jqtouch4.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                fullScreen: true,
+            });
+
+            $(function()
+            {
+                console.log('Document.ready test');
+            });
+        </script>
+        
+		<script type="text/javascript">
+
+			function startCalc()
+			{
+			 interval = setInterval("calc()",1);
+			}
+			function calc()
+			{
+			 sestina = document.autoSumForm.sestina.value;
+			 terzina = document.autoSumForm.terzina.value; 
+			 carre = document.autoSumForm.carre.value;
+			 cavallo = document.autoSumForm.cavallo.value;
+			 pieno = document.autoSumForm.pieno.value;
+			 document.autoSumForm.totale.value = (sestina * 5) + (terzina * 11) + (carre * 8) + (cavallo * 17) + (pieno * 35);
+			}
+			function stopCalc()
+			{
+			 clearInterval(interval);
+			}
+		
+		</script>
+		<style type="text/css" media="screen">
+			#jqt.fullscreen #home .info 
+		    {
+		    	display: none;
+		     }
+        </style>
+    </head>
+    <body>
+		<div>
+        	<div class="toolbar">
+            	<h1>Roulette &beta;2</h1>
+            </div>            
+            <form name="autoSumForm" class="form">
+            	<ul class="edit rounded">
+					<li><input type="tel" name="sestina" placeholder="Sestina" value="" onFocus="startCalc();" onBlur="stopCalc();" ></li>
+					<li><input type="tel" name="terzina" placeholder="Terzina" value="" onFocus="startCalc();" onBlur="stopCalc();"></li>
+					<li><input type="tel" name="carre" placeholder="Carr&egrave;" value="" onFocus="startCalc();" onBlur="stopCalc();"></li>
+					<li><input type="tel" name="cavallo" placeholder="Cavallo" value="" onFocus="startCalc();" onBlur="stopCalc();"></li>
+					<li><input type="tel" name="pieno" placeholder="Pieno" value="" onFocus="startCalc();" onBlur="stopCalc();"></li>
+					<li><center>Totale: <input type="text" name="totale" style="font-weight: bold; color:#72A4D2; font-size: 32px; text-align:center;" ></center></li>
+					<li><center><input type="reset" value="Reset"/></center></li>
+				</ul>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<!--<html manifest="cache.manifest">-->
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Roulette &beta;3</title>
+        <style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>
+        <style type="text/css" media="screen">@import "themes/jqt/theme.css";</style>
+        <script src="jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+        <!--<script src="extensions/jqt.offline.js" type="application/x-javascript" charset="utf-8"></script>-->
+
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'jqtouch.png',
+                icon4: 'jqtouch4.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                fullScreen: true
+            });
+
+            $(function(){
+                console.log('Document.ready test');
+            });
+        </script>
+		<script type="text/javascript">
+
+			function startCalc(){
+			 interval = setInterval("calc()",1);
+			}
+			function calc(){
+			 sestina = document.autoSumForm.sestina.value;
+			 terzina = document.autoSumForm.terzina.value; 
+			 carre = document.autoSumForm.carre.value;
+			 cavallo = document.autoSumForm.cavallo.value;
+			 pieno = document.autoSumForm.pieno.value;
+			 
+			 document.autoSumForm.totale.value = (sestina * 5) + (terzina * 11) + (carre * 8) + (cavallo * 17) + (pieno * 35);
+			}
+			function stopCalc(){
+			 clearInterval(interval);
+			}
+		
+		</script>
+    </head>
+    <body>
+<div id="demolist">
+    <div class="toolbar">
+        <h1>Demo List</h1>
+        <a class="back" href="#">Back</a>
+    </div>
+    <h4>Options</h4>
+    <ul class="rounded">
+        <li><a href="#item1">Item 1</a></li>
+        <li><a href="#item2">Item 2</a></li>
+        <li><a href="#item3">Item 3</a></li>
+    </ul>
+</div>
+    </body>
+</html>
